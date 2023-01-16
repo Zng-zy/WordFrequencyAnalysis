@@ -23,7 +23,7 @@ def per_n_chapters_as_a_group(n, json_data):
         "description": "每{:0>3}回作为一组".format(n),
         "value": json_data_temp
     }
-    # 将输入保存至全局变量管理器 global_dict 中
+    # 将处理后输入数据保存至全局变量管理器 global_dict
     glv.set_value("json_data_{:0>3}".format(n), _value_)
 
 
@@ -42,6 +42,7 @@ def first_eighty_and_last_forty_chapters(json_data):
             }
         }
     }
+    # 将处理后输入数据保存至全局变量管理器 global_dict
     glv.set_value("json_data_80_40", _value_)
 
 
@@ -53,11 +54,11 @@ def get_input_json_data():
     # 输入数据01 ———— 每一回作为一组
     per_n_chapters_as_a_group(1, json_data)
 
-    # 输入数据02 ———— 每五回作为一组
-    per_n_chapters_as_a_group(5, json_data)
-
-    # 输入数据03 ———— 每十回作为一组
-    per_n_chapters_as_a_group(10, json_data)
+    # # 输入数据02 ———— 每五回作为一组
+    # per_n_chapters_as_a_group(5, json_data)
+    #
+    # # 输入数据03 ———— 每十回作为一组
+    # per_n_chapters_as_a_group(10, json_data)
 
     # 输入数据04 ———— 全文作为一组
     per_n_chapters_as_a_group(120, json_data)

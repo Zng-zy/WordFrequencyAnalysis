@@ -14,6 +14,9 @@ def from_string_get_single_word_frequency_statistics(string):
     dic_swfs = {}
     for key in string:
         dic_swfs[key] = dic_swfs.get(key, 0) + 1
+
+    # 字典排序
+    dic_swfs = dict(sorted(dic_swfs.items(), key=lambda x: x[1], reverse=True))
     return dic_swfs
 
 
@@ -22,8 +25,6 @@ def single_word_frequency_statistics__per_n_chapters_as_a_group(json_data_n):
     dic_swfs_n = {}  # 记录统计结果
     for key in json_data_n["value"]:
         dic_swfs_temp = from_string_get_single_word_frequency_statistics(json_data_n["value"][key]["content"])
-        # 字典排序
-        dic_swfs_temp = dict(sorted(dic_swfs_temp.items(), key=lambda x: x[1], reverse=True))
         dic_swfs_n[key] = dic_swfs_temp
 
     # 将结果保存至全局变量管理器 global_dict
@@ -37,8 +38,6 @@ def single_word_frequency_statistics__first_eighty_and_last_forty_chapters(json_
     dic_swfs_80_40 = {}  # 记录统计结果
     for key in json_data_80_40["value"]:
         dic_swfs_temp = from_string_get_single_word_frequency_statistics(json_data_80_40["value"][key]["content"])
-        # 字典排序
-        dic_swfs_temp = dict(sorted(dic_swfs_temp.items(), key=lambda x: x[1], reverse=True))
         dic_swfs_80_40[key] = dic_swfs_temp
 
     # 将结果保存至全局变量管理器 global_dict
